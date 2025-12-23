@@ -1,0 +1,1307 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     54060,       1299]
+NotebookOptionsPosition[     51458,       1244]
+NotebookOutlinePosition[     51879,       1261]
+CellTagsIndexPosition[     51836,       1258]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Multiway Systems and Quantum Circuits", "Title",
+ CellChangeTimes->{{3.9663799464179773`*^9, 3.9663799486840773`*^9}, {
+  3.966397642157699*^9, 3.966397644619578*^9}, {3.972522197465494*^9, 
+  3.972522201442696*^9}, {3.972629396548647*^9, 3.972629396577745*^9}, {
+  3.975399554660749*^9, 
+  3.9753995597189283`*^9}},ExpressionUUID->"da4d3f49-4ee9-40ef-9a9a-\
+04b7899a0e26"],
+
+Cell[TextData[{
+ StyleBox["Authors:",
+  FontWeight->"Bold"],
+ " Furkan Semih D\[UDoubleDot]ndar, Xerxes D. Arsiwalla, Hatem Elshatlawy\n",
+ StyleBox["Year:",
+  FontWeight->"Bold"],
+ " 2025\n",
+ StyleBox["License:",
+  FontWeight->"Bold"],
+ " CC BY-SA 4.0"
+}], "Text",
+ CellChangeTimes->{{3.965119679729272*^9, 3.965119701141006*^9}, {
+  3.965119898105138*^9, 
+  3.965119901362689*^9}},ExpressionUUID->"38cd8b72-35c3-4c17-926a-\
+868ae714738e"],
+
+Cell[CellGroupData[{
+
+Cell["Software", "Section",
+ CellChangeTimes->{{3.966380167004016*^9, 
+  3.966380168094493*^9}},ExpressionUUID->"a1619089-7e59-4135-9a2c-\
+01471ec7e3ac"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"PacletInstall", "[", "\"\<Wolfram/QuantumFramework\>\"", "]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.966380085440874*^9, 3.9663800854409246`*^9}, 
+   3.966397649841672*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"d13e9dbd-7954-4571-9b89-5d9dedb1c1f9"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Wolfram`QuantumFramework`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.9663801574601803`*^9, 3.9663801574602013`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"24687b65-7640-400b-95a6-441519df306a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Quantum Circuits", "Section",
+ CellChangeTimes->{{3.966380174195373*^9, 3.966380175614315*^9}, {
+  3.972522302724537*^9, 3.972522305497356*^9}, {3.975399618396003*^9, 
+  3.975399619163109*^9}},ExpressionUUID->"25349feb-5e1b-483e-a31f-\
+5a82f8ee83f9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"qc1", "=", 
+   RowBox[{"QuantumCircuitOperator", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<XX\>\"", ",", "\"\<CNOT\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.972522315776228*^9, 3.97252231886065*^9}, 
+   3.972522352969236*^9, {3.975495804831407*^9, 3.975495804897154*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"91074914-57b5-45b9-86c4-7568753077ff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"qc1", "[", 
+  RowBox[{"\"\<Diagram\>\"", ",", 
+   RowBox[{"ImageSize", "->", "Tiny"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.972522324309517*^9, 3.9725223243684797`*^9}, {
+  3.975495806988564*^9, 3.975495807035058*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"8182bc94-569e-4ab5-8201-eef8ae006e18"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"X\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"X\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "X", "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"X\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"X\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "X", "Tooltip"]& ]}, 
+       {Dashing[{Small, Small}], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+      TemplateBox[{"\"X\"", 
+        RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+       SuperscriptBox]],
+     Annotation[#, 
+      Superscript["X", 
+       CircleTimes[2]], "Tooltip"]& ], 
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+           Opacity[0.3], CapForm[None], LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+           LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+           {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+            RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+            DiskBox[{2., -2.}, 0.15000000000000002], 
+            {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+             LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+             LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+          "\"NOT\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "NOT", "Tooltip"]& ], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+       TagBox[
+        TooltipBox[
+         {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+          Opacity[0.3], CapForm[None], 
+          LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+          LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           DiskBox[{2., -1.}, 0.09375]}},
+         "\"1\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1", "Tooltip"]& ], {}},
+      RowBox[{
+        SubscriptBox["\"C\"", "\"NOT\""], "[", 
+        RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "}"}]}], "]"}]],
+     Annotation[#, 
+      Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+     StyleBox["1",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+     StyleBox["2",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+  ImageSize->Tiny]], "Output",
+ CellChangeTimes->{{3.972522324760076*^9, 3.972522354021422*^9}, 
+   3.97262940497955*^9, 3.973809723883585*^9, 3.975495906127161*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"0570ab7e-3623-4296-ab5f-d4f8161fc7d4"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"qc2", "=", 
+   RowBox[{"QuantumCircuitOperator", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<YY\>\"", ",", "\"\<CNOT\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.972522337909685*^9, 3.97252235713936*^9}, {
+  3.972522782908085*^9, 3.972522784078525*^9}, {3.9754958087751217`*^9, 
+  3.975495808834188*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"ebab88da-f021-4657-8466-e8acee8c0798"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"qc2", "[", 
+  RowBox[{"\"\<Diagram\>\"", ",", 
+   RowBox[{"ImageSize", "->", "Tiny"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.972522345122335*^9, 3.972522345198571*^9}, {
+  3.9754958102320547`*^9, 3.975495810317915*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"e8ce8ae7-257d-489d-bad4-48c0256f7cb8"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"Y\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"Y\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "Y", "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"Y\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"Y\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "Y", "Tooltip"]& ]}, 
+       {Dashing[{Small, Small}], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+      TemplateBox[{"\"Y\"", 
+        RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+       SuperscriptBox]],
+     Annotation[#, 
+      Superscript["Y", 
+       CircleTimes[2]], "Tooltip"]& ], 
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+           Opacity[0.3], CapForm[None], LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+           LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+           {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+            RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+            DiskBox[{2., -2.}, 0.15000000000000002], 
+            {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+             LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+             LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+          "\"NOT\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "NOT", "Tooltip"]& ], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+       TagBox[
+        TooltipBox[
+         {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+          Opacity[0.3], CapForm[None], 
+          LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+          LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           DiskBox[{2., -1.}, 0.09375]}},
+         "\"1\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1", "Tooltip"]& ], {}},
+      RowBox[{
+        SubscriptBox["\"C\"", "\"NOT\""], "[", 
+        RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "}"}]}], "]"}]],
+     Annotation[#, 
+      Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+     StyleBox["1",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+     StyleBox["2",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+  ImageSize->Tiny]], "Output",
+ CellChangeTimes->{3.972522358856213*^9, 3.972522785495801*^9, 
+  3.972629406593804*^9, 3.9738097269514847`*^9, 3.975495906250083*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"8e8fb7c8-e134-418d-947a-1ebee181499b"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"qc3", "=", 
+   RowBox[{"QuantumCircuitOperator", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<ZZ\>\"", ",", "\"\<CNOT\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.972630422719377*^9, 3.972630441897525*^9}, {
+  3.975495830603162*^9, 3.975495830651314*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"7e530ae1-282b-4304-a458-1024e45ed15a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"qc3", "[", 
+  RowBox[{"\"\<Diagram\>\"", ",", 
+   RowBox[{"ImageSize", "->", "Tiny"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9726304346388187`*^9, 3.972630435031723*^9}, {
+  3.9754958327018147`*^9, 3.975495832768214*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"a3185449-7fe2-4a75-8902-426edca2d04a"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+    {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[None], 
+     {AbsoluteThickness[1], Opacity[0.3], 
+      LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"Z\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"Z\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "Z", "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+            RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+             StyleBox["\<\"Z\"\>",
+              StripOnInput->False,
+              FontFamily->"Roboto",
+              FontSize->11,
+              FontColor->LightDarkSwitched[
+                GrayLevel[0], 
+                GrayLevel[1]],
+              Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}}, 
+             Center}]},
+          "\"Z\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "Z", "Tooltip"]& ]}, 
+       {Dashing[{Small, Small}], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+      TemplateBox[{"\"Z\"", 
+        RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+       SuperscriptBox]],
+     Annotation[#, 
+      Superscript["Z", 
+       CircleTimes[2]], "Tooltip"]& ], 
+    TagBox[
+     TooltipBox[{{
+        TagBox[
+         TooltipBox[
+          {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+           Opacity[0.3], CapForm[None], LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+           LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+           {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+            RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+            DiskBox[{2., -2.}, 0.15000000000000002], 
+            {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+             LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+             LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+          "\"NOT\"",
+          TooltipStyle->"TextStyling"],
+         Annotation[#, "NOT", "Tooltip"]& ], 
+        {RGBColor[0.880722, 0.611041, 0.142051], 
+         LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+       TagBox[
+        TooltipBox[
+         {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+          Opacity[0.3], CapForm[None], 
+          LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+          LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+          {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+           RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+           DiskBox[{2., -1.}, 0.09375]}},
+         "\"1\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1", "Tooltip"]& ], {}},
+      RowBox[{
+        SubscriptBox["\"C\"", "\"NOT\""], "[", 
+        RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "}"}]}], "]"}]],
+     Annotation[#, 
+      Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+     StyleBox["1",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+     StyleBox["2",
+      StripOnInput->False,
+      FontSize->10,
+      FontSlant->Italic,
+      FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+      Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+     ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+  ImageSize->Tiny]], "Output",
+ CellChangeTimes->{{3.9726304359846697`*^9, 3.97263044309695*^9}, 
+   3.9738097295941553`*^9, 3.975495906365657*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"38942784-4cf6-4464-af9c-d9b3a25b4bd1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The Multiway System", "Section",
+ CellChangeTimes->{{3.972522409449115*^9, 3.972522414575932*^9}, {
+  3.975399613366522*^9, 
+  3.975399613636112*^9}},ExpressionUUID->"592e48e5-f5d2-4c21-8299-\
+ed535b888f29"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"g", "=", 
+  RowBox[{"Graph", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", "12", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "->", "8"}], ",", 
+      RowBox[{"4", "->", "5"}], ",", 
+      RowBox[{"2", "->", "7"}], ",", 
+      RowBox[{"3", "->", "6"}], ",", 
+      RowBox[{"5", "->", "9"}], ",", 
+      RowBox[{"6", "->", "10"}], ",", 
+      RowBox[{"7", "->", "12"}], ",", 
+      RowBox[{"8", "->", "11"}], ",", 
+      RowBox[{"1", "->", "5"}], ",", 
+      RowBox[{"4", "->", "8"}], ",", 
+      RowBox[{"2", "->", "6"}], ",", 
+      RowBox[{"3", "->", "7"}]}], "}"}], ",", 
+    RowBox[{"VertexCoordinates", "->", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "->", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"2", "->", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"3", "->", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"4", "->", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"5", "->", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], ",", 
+       RowBox[{"6", "->", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], ",", 
+       RowBox[{"7", "->", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], ",", 
+       RowBox[{"8", "->", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], ",", 
+       RowBox[{"9", "->", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "2"}]}], "}"}]}], ",", 
+       RowBox[{"10", "->", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", 
+          RowBox[{"-", "2"}]}], "}"}]}], ",", 
+       RowBox[{"12", "->", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", 
+          RowBox[{"-", "2"}]}], "}"}]}], ",", 
+       RowBox[{"11", "->", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{"-", "2"}]}], "}"}]}]}], "}"}]}], ",", 
+    RowBox[{"ImageSize", "->", "Small"}], ",", 
+    RowBox[{"PlotTheme", "->", "\"\<VibrantColor\>\""}], ",", 
+    RowBox[{"VertexSize", "->", "Small"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.972629416697049*^9, 3.972629422990345*^9}, {
+   3.972629462677259*^9, 3.972629482481257*^9}, {3.972629538055468*^9, 
+   3.9726295510260763`*^9}, {3.973809735378338*^9, 3.973809737415675*^9}, {
+   3.973809820913445*^9, 3.9738098278958187`*^9}, 3.9754957684674587`*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"d29e55ed-9f77-423a-9463-cb52b3e3f325"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
+      12}, {{{1, 8}, {4, 5}, {2, 7}, {3, 6}, {5, 9}, {6, 10}, {7, 12}, {8, 
+       11}, {1, 5}, {4, 8}, {2, 6}, {3, 7}}, Null}, {
+      ImageSize -> Small, PlotTheme -> "VibrantColor", 
+       VertexCoordinates -> {{0, 0}, {1, 0}, {2, 0}, {3, 0}, {0, -1}, {
+        1, -1}, {2, -1}, {3, -1}, {0, -2}, {1, -2}, {2, -2}, {3, -2}}, 
+       VertexSize -> {Small}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {RGBColor[0.192157, 0.388235, 0.807843], Arrowheads[Medium], 
+        ArrowBox[{
+         DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
+          "VertexID$5", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
+          "VertexID$8", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$2", Automatic, Center], DynamicLocation[
+          "VertexID$6", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$2", Automatic, Center], DynamicLocation[
+          "VertexID$7", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$3", Automatic, Center], DynamicLocation[
+          "VertexID$6", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$3", Automatic, Center], DynamicLocation[
+          "VertexID$7", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$4", Automatic, Center], DynamicLocation[
+          "VertexID$5", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$4", Automatic, Center], DynamicLocation[
+          "VertexID$8", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$5", Automatic, Center], DynamicLocation[
+          "VertexID$9", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$6", Automatic, Center], DynamicLocation[
+          "VertexID$10", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$7", Automatic, Center], DynamicLocation[
+          "VertexID$12", Automatic, Center]}], 
+        ArrowBox[{
+         DynamicLocation["VertexID$8", Automatic, Center], DynamicLocation[
+          "VertexID$11", Automatic, Center]}]}, 
+       {RGBColor[0.790588, 0.201176, 0.], EdgeForm[RGBColor[
+        0.790588, 0.201176, 0.]], 
+        TagBox[DiskBox[{0., 0.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$1"], 
+        TagBox[DiskBox[{1., 0.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$2"], 
+        TagBox[DiskBox[{2., 0.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$3"], 
+        TagBox[DiskBox[{3., 0.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$4"], 
+        TagBox[DiskBox[{0., -1.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$5"], 
+        TagBox[DiskBox[{1., -1.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$6"], 
+        TagBox[DiskBox[{2., -1.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$7"], 
+        TagBox[DiskBox[{3., -1.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$8"], 
+        TagBox[DiskBox[{0., -2.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$9"], 
+        TagBox[DiskBox[{1., -2.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$10"], 
+        TagBox[DiskBox[{2., -2.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$11"], 
+        TagBox[DiskBox[{3., -2.}, 0.05],
+         "DynamicName",
+         BoxID -> "VertexID$12"]}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->Small]], "Output",
+ CellChangeTimes->{
+  3.972629484101306*^9, {3.972629542331718*^9, 3.972629551658174*^9}, 
+   3.9738097378522873`*^9, 3.973809828467721*^9, 3.9754959064094753`*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"b3e58c03-690b-45fb-9109-aa1534932660"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Plot", "Section",
+ CellChangeTimes->{{3.9725229081721087`*^9, 
+  3.972522908558999*^9}},ExpressionUUID->"79332833-5cfb-4cc8-8f73-\
+36c2bdfaab40"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plt", "=", 
+  RowBox[{"GraphicsRow", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Show", "[", 
+       RowBox[{"g", ",", 
+        RowBox[{"PlotLabel", "->", "\"\<a)\>\""}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"qc1", "[", 
+       RowBox[{"\"\<Diagram\>\"", ",", 
+        RowBox[{"PlotLabel", "->", "\"\<b)\>\""}], ",", 
+        RowBox[{"ImageSize", "->", "Small"}]}], "]"}], ",", 
+      RowBox[{"qc2", "[", 
+       RowBox[{"\"\<Diagram\>\"", ",", 
+        RowBox[{"PlotLabel", "->", "\"\<c)\>\""}], ",", 
+        RowBox[{"ImageSize", "->", "Small"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"qc3", "[", 
+       RowBox[{"\"\<Diagram\>\"", ",", 
+        RowBox[{"PlotLabel", "->", "\"\<d)\>\""}], ",", 
+        RowBox[{"ImageSize", "->", "Small"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}], ",", 
+    RowBox[{"Dividers", "->", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"2", "->", 
+          RowBox[{"Directive", "[", "Dashed", "]"}]}], ",", 
+         RowBox[{"3", "->", 
+          RowBox[{"Directive", "[", "Dashed", "]"}]}], ",", 
+         RowBox[{"4", "->", 
+          RowBox[{"Directive", "[", "Dashed", "]"}]}]}], "}"}], ",", 
+       "False"}], "}"}]}], ",", 
+    RowBox[{"Alignment", "->", "Top"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9726296866788683`*^9, 3.972629688551297*^9}, 
+   3.97263040601714*^9, {3.972630457742275*^9, 3.9726304643542767`*^9}, {
+   3.9754957726606617`*^9, 3.975495777475381*^9}, {3.975495854140808*^9, 
+   3.975495856243834*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"3f3a0a96-fefb-4ec1-bf02-e3a52b000f66"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[
+      NamespaceBox[{
+        {RGBColor[0.192157, 0.388235, 0.807843], Arrowheads[Medium], 
+         ArrowBox[{
+          DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
+           "VertexID$5", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
+           "VertexID$8", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$2", Automatic, Center], DynamicLocation[
+           "VertexID$6", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$2", Automatic, Center], DynamicLocation[
+           "VertexID$7", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$3", Automatic, Center], DynamicLocation[
+           "VertexID$6", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$3", Automatic, Center], DynamicLocation[
+           "VertexID$7", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$4", Automatic, Center], DynamicLocation[
+           "VertexID$5", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$4", Automatic, Center], DynamicLocation[
+           "VertexID$8", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$5", Automatic, Center], DynamicLocation[
+           "VertexID$9", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$6", Automatic, Center], DynamicLocation[
+           "VertexID$10", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$7", Automatic, Center], DynamicLocation[
+           "VertexID$12", Automatic, Center]}], 
+         ArrowBox[{
+          DynamicLocation["VertexID$8", Automatic, Center], DynamicLocation[
+           "VertexID$11", Automatic, Center]}]}, 
+        {RGBColor[0.790588, 0.201176, 0.], EdgeForm[RGBColor[
+         0.790588, 0.201176, 0.]], 
+         TagBox[DiskBox[{0., 0.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$1"], 
+         TagBox[DiskBox[{1., 0.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$2"], 
+         TagBox[DiskBox[{2., 0.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$3"], 
+         TagBox[DiskBox[{3., 0.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$4"], 
+         TagBox[DiskBox[{0., -1.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$5"], 
+         TagBox[DiskBox[{1., -1.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$6"], 
+         TagBox[DiskBox[{2., -1.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$7"], 
+         TagBox[DiskBox[{3., -1.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$8"], 
+         TagBox[DiskBox[{0., -2.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$9"], 
+         TagBox[DiskBox[{1., -2.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$10"], 
+         TagBox[DiskBox[{2., -2.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$11"], 
+         TagBox[DiskBox[{3., -2.}, 0.05],
+          "DynamicName",
+          BoxID -> "VertexID$12"]}}],
+      FormatType->TraditionalForm,
+      FrameTicks->None,
+      ImageSize->Small,
+      PlotLabel->FormBox["\"a)\"", TraditionalForm]], {97.2, -7.2}, 
+     ImageScaled[{0.5, 1}], {180., 137.950533266129},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{{
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"X\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"X\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "X", "Tooltip"]& ], 
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"X\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"X\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "X", "Tooltip"]& ]}, 
+           {Dashing[{Small, Small}], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+          TemplateBox[{"\"X\"", 
+            RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+           SuperscriptBox]],
+         Annotation[#, 
+          Superscript["X", 
+           CircleTimes[2]], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+               Opacity[0.3], CapForm[None], 
+               LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+               LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+               {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+                RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+                DiskBox[{2., -2.}, 0.15000000000000002], 
+                {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+                 LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+                 LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+              "\"NOT\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "NOT", "Tooltip"]& ], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+           TagBox[
+            TooltipBox[
+             {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+              Opacity[0.3], CapForm[None], 
+              LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+              LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               DiskBox[{2., -1.}, 0.09375]}},
+             "\"1\"",
+             TooltipStyle->"TextStyling"],
+            Annotation[#, "1", "Tooltip"]& ], {}},
+          RowBox[{
+            SubscriptBox["\"C\"", "\"NOT\""], "[", 
+            RowBox[{
+              RowBox[{"{", "1", "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}]],
+         Annotation[#, 
+          Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+         StyleBox["1",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+         StyleBox["2",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+      ImageSize->Small,
+      PlotLabel->FormBox["\"b)\"", TraditionalForm]], {291.6, -7.2}, 
+     ImageScaled[{0.5, 1}], {180., 147.91347895408163},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{{
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"Y\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"Y\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "Y", "Tooltip"]& ], 
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"Y\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"Y\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "Y", "Tooltip"]& ]}, 
+           {Dashing[{Small, Small}], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+          TemplateBox[{"\"Y\"", 
+            RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+           SuperscriptBox]],
+         Annotation[#, 
+          Superscript["Y", 
+           CircleTimes[2]], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+               Opacity[0.3], CapForm[None], 
+               LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+               LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+               {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+                RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+                DiskBox[{2., -2.}, 0.15000000000000002], 
+                {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+                 LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+                 LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+              "\"NOT\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "NOT", "Tooltip"]& ], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+           TagBox[
+            TooltipBox[
+             {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+              Opacity[0.3], CapForm[None], 
+              LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+              LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               DiskBox[{2., -1.}, 0.09375]}},
+             "\"1\"",
+             TooltipStyle->"TextStyling"],
+            Annotation[#, "1", "Tooltip"]& ], {}},
+          RowBox[{
+            SubscriptBox["\"C\"", "\"NOT\""], "[", 
+            RowBox[{
+              RowBox[{"{", "1", "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}]],
+         Annotation[#, 
+          Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+         StyleBox["1",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+         StyleBox["2",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+      ImageSize->Small,
+      PlotLabel->FormBox["\"c)\"", TraditionalForm]], {486., -7.2}, 
+     ImageScaled[{0.5, 1}], {180., 147.91347895408163},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{{
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -1}, {1.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{1.375, -2}, {1.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -1}, {0.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{0.375, -2}, {0.625, -2}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -1}, {2.625, -1}}]}}, 
+        {RGBColor[0.537254, 0.537254, 0.537254], Opacity[0.3], CapForm[
+         None], 
+         {AbsoluteThickness[1], Opacity[0.3], 
+          LineBox[{{2.375, -2}, {2.625, -2}}]}}}, {
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -1.375}, {1.375, -0.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"Z\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -1.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"Z\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "Z", "Tooltip"]& ], 
+            TagBox[
+             TooltipBox[
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               RectangleBox[{0.625, -2.375}, {1.375, -1.625},
+                RoundingRadius->0.1], GeometricTransformationBox[InsetBox[
+                 StyleBox["\<\"Z\"\>",
+                  StripOnInput->False,
+                  FontFamily->"Roboto",
+                  FontSize->11,
+                  FontColor->LightDarkSwitched[
+                    GrayLevel[0], 
+                    GrayLevel[1]],
+                  Background->GrayLevel[0, 0]], {1., -2.}], {{{1, 0}, {0, 1}},
+                  Center}]},
+              "\"Z\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "Z", "Tooltip"]& ]}, 
+           {Dashing[{Small, Small}], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{1., -1.375}, {1., -1.625}}]}}},
+          TemplateBox[{"\"Z\"", 
+            RowBox[{"\[CircleTimes]", "2"}]}, "Superscript", SyntaxForm -> 
+           SuperscriptBox]],
+         Annotation[#, 
+          Superscript["Z", 
+           CircleTimes[2]], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[{{
+            TagBox[
+             TooltipBox[
+              {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+               Opacity[0.3], CapForm[None], 
+               LineBox[{{1.625, -2.}, {1.85, -2.}}], 
+               LineBox[{{2.15, -2.}, {2.375, -2.}}], 
+               {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+                RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+                DiskBox[{2., -2.}, 0.15000000000000002], 
+                {RGBColor[0.880722, 0.611041, 0.142051], Opacity[1], 
+                 LineBox[{{1.85, -2.}, {2.15, -2.}}], 
+                 LineBox[{{2., -2.15}, {2., -1.85}}]}}},
+              "\"NOT\"",
+              TooltipStyle->"TextStyling"],
+             Annotation[#, "NOT", "Tooltip"]& ], 
+            {RGBColor[0.880722, 0.611041, 0.142051], 
+             LineBox[{{2., -1.09375}, {2., -1.85}}]}}, 
+           TagBox[
+            TooltipBox[
+             {RGBColor[0.537254, 0.537254, 0.537254], AbsoluteThickness[1], 
+              Opacity[0.3], CapForm[None], 
+              LineBox[{{1.625, -1.}, {1.90625, -1.}}], 
+              LineBox[{{2.09375, -1.}, {2.375, -1.}}], 
+              {EdgeForm[RGBColor[0.880722, 0.611041, 0.142051]], FaceForm[{
+               RGBColor[0.880722, 0.611041, 0.142051], Opacity[0.3]}], 
+               DiskBox[{2., -1.}, 0.09375]}},
+             "\"1\"",
+             TooltipStyle->"TextStyling"],
+            Annotation[#, "1", "Tooltip"]& ], {}},
+          RowBox[{
+            SubscriptBox["\"C\"", "\"NOT\""], "[", 
+            RowBox[{
+              RowBox[{"{", "1", "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}]],
+         Annotation[#, 
+          Subscript["C", "NOT"][{1}, {}], "Tooltip"]& ]}, {InsetBox[
+         StyleBox["1",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -1}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]], InsetBox[
+         StyleBox["2",
+          StripOnInput->False,
+          FontSize->10,
+          FontSlant->Italic,
+          FontColor->RGBColor[0.537254, 0.537254, 0.537254],
+          Background->GrayLevel[0, 0]], {0.28125, -2}, NCache[
+         ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]]]}},
+      ImageSize->Small,
+      PlotLabel->FormBox["\"d)\"", TraditionalForm]], {680.4000000000001, -7.2},
+      ImageScaled[{0.5, 1}], {180., 147.91347895408163},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, 
+   StyleBox[{{}, {
+      {Dashing[{Small, Small}], 
+       LineBox[{{194.4, 0}, {194.4, -162.31347895408163`}}]}, 
+      {Dashing[{Small, Small}], 
+       LineBox[{{388.8, 0}, {388.8, -162.31347895408163`}}]}, 
+      {Dashing[{Small, Small}], 
+       LineBox[{{583.2, 0}, {583.2, -162.31347895408163`}}]}}},
+    Antialiasing->False]},
+  ImageSize->{
+    UpTo[600], 
+    UpTo[700]},
+  Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+  PlotRange->{{0, 777.6}, {-162.31347895408163`, 0}},
+  PlotRangePadding->Automatic]], "Output",
+ CellChangeTimes->{
+  3.972629692017476*^9, 3.972630408287037*^9, {3.972630458454348*^9, 
+   3.972630465133078*^9}, 3.973809758802156*^9, 3.9738098352515907`*^9, 
+   3.975495906629786*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"73c78b05-6a10-4c43-8e8c-7166ff5804c3"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{819.75, 683.25},
+WindowMargins->{{57.75, Automatic}, {Automatic, 59.25}},
+LightDark->"Light",
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fb771c04-9c0b-43d0-be6e-6950237d5ab4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 379, 6, 96, "Title",ExpressionUUID->"da4d3f49-4ee9-40ef-9a9a-04b7899a0e26"],
+Cell[958, 30, 441, 14, 77, "Text",ExpressionUUID->"38cd8b72-35c3-4c17-926a-868ae714738e"],
+Cell[CellGroupData[{
+Cell[1424, 48, 153, 3, 65, "Section",ExpressionUUID->"a1619089-7e59-4135-9a2c-01471ec7e3ac"],
+Cell[1580, 53, 297, 6, 29, "Input",ExpressionUUID->"d13e9dbd-7954-4571-9b89-5d9dedb1c1f9"],
+Cell[1880, 61, 238, 3, 29, "Input",ExpressionUUID->"24687b65-7640-400b-95a6-441519df306a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2155, 69, 256, 4, 65, "Section",ExpressionUUID->"25349feb-5e1b-483e-a31f-5a82f8ee83f9"],
+Cell[2414, 75, 408, 9, 29, "Input",ExpressionUUID->"91074914-57b5-45b9-86c4-7568753077ff"],
+Cell[CellGroupData[{
+Cell[2847, 88, 324, 6, 29, "Input",ExpressionUUID->"8182bc94-569e-4ab5-8201-eef8ae006e18"],
+Cell[3174, 96, 5318, 121, 89, "Output",ExpressionUUID->"0570ab7e-3623-4296-ab5f-d4f8161fc7d4"]
+}, Open  ]],
+Cell[8507, 220, 436, 10, 29, "Input",ExpressionUUID->"ebab88da-f021-4657-8466-e8acee8c0798"],
+Cell[CellGroupData[{
+Cell[8968, 234, 324, 6, 29, "Input",ExpressionUUID->"e8ce8ae7-257d-489d-bad4-48c0256f7cb8"],
+Cell[9295, 242, 5318, 121, 89, "Output",ExpressionUUID->"8e8fb7c8-e134-418d-947a-1ebee181499b"]
+}, Open  ]],
+Cell[14628, 366, 386, 9, 29, "Input",ExpressionUUID->"7e530ae1-282b-4304-a458-1024e45ed15a"],
+Cell[CellGroupData[{
+Cell[15039, 379, 326, 6, 29, "Input",ExpressionUUID->"a3185449-7fe2-4a75-8902-426edca2d04a"],
+Cell[15368, 387, 5300, 121, 89, "Output",ExpressionUUID->"38942784-4cf6-4464-af9c-d9b3a25b4bd1"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20717, 514, 213, 4, 65, "Section",ExpressionUUID->"592e48e5-f5d2-4c21-8299-ed535b888f29"],
+Cell[CellGroupData[{
+Cell[20955, 522, 2630, 73, 109, "Input",ExpressionUUID->"d29e55ed-9f77-423a-9463-cb52b3e3f325"],
+Cell[23588, 597, 4067, 96, 141, "Output",ExpressionUUID->"b3e58c03-690b-45fb-9109-aa1534932660"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27704, 699, 151, 3, 65, "Section",ExpressionUUID->"79332833-5cfb-4cc8-8f73-36c2bdfaab40"],
+Cell[CellGroupData[{
+Cell[27880, 706, 1704, 41, 149, "Input",ExpressionUUID->"3f3a0a96-fefb-4ec1-bf02-e3a52b000f66"],
+Cell[29587, 749, 21831, 490, 142, "Output",ExpressionUUID->"73c78b05-6a10-4c43-8e8c-7166ff5804c3"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
