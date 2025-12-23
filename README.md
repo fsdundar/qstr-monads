@@ -2,7 +2,7 @@
 
 This repository contains codes and files related to the paper mentioned at the end.
 
-In order to use the files here, you need to download the **wws25fsd.wl** from the following repository: [Dündar's Wolfram Winter School 2025 Project](github.com/fsdundar/wws25). In addition you need to install the Multicomputation paclet via running the following code in, for example, a Mathematica notebook:
+In order to use the files here, you need to download the **wws25fsd.wl** from the following repository: [Dündar's Wolfram Winter School 2025 Project](https://github.com/fsdundar/wws25). In addition you need to install the Multicomputation paclet via running the following code in, for example, a Mathematica notebook:
 
 ```Mathematica
 PacletInstall["https://www.wolfr.am/Multicomputation.paclet", ForceVersionInstall -> True]
