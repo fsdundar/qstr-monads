@@ -26,6 +26,6 @@ If you would like to cite this repository, please cite the following paper as we
     author = {Furkan Semih Dündar, Xerxes D. Arsiwalla, Hatem Elshatlawy},
     title = {Quantum Gates from Wolfram Model Multiway Rewriting Systems},
     year = {2025},
-    note = {arXiv:}
+    note = {arXiv:2512.20587}
 }
 ```
